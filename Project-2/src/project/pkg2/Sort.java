@@ -73,6 +73,68 @@ public class Sort {
      * @param base
      * @return 
      */
+//    public static int[] quick(int[] base) {
+//        comparisons = 0; //for project analysis
+//        return quickHelp(base);
+//    }
+//    //mutates
+//    private static int[] quickHelp(int[] base) {
+//        
+//        if (base.length == 1) return base; //base case
+//        
+//        int[] n = Arrays.copyOf(base, base.length);
+//        
+//        //indexes
+//        int pivot = n.length - 1; //pivot at end of array
+//        int left = -1;
+//        int right = -1;
+//        
+//        //left and right sub-arrays
+//        int[] subL;
+//        int[] subR;
+//        
+//        while (left <= right) {
+//            
+//            for (int i = 0; i < n.length; i++) {
+//                if (n[i] > n[pivot]) left = i;
+//            }
+//            if (left == -1) { //pivot is already in correct place (last)
+//                left = pivot;
+//                break;
+//            }
+//
+//            for (int i = 0; i < n.length; i++) {
+//                if (n[i] < n[pivot]) right = i;
+//            }
+//            if (right == -1) { //pivot is already in correct place (last)
+//                left = 0;
+//                break;
+//            }
+//
+//            swap(n, left, right);
+//        }
+//        
+//        //assigns pivot value to correct index
+//        swap(n, left, pivot);
+//        
+//        subL = Arrays.copyOfRange(n, 0, pivot);
+//        subR = Arrays.copyOfRange(n, pivot + 1, n.length);
+//        
+//        //recursively quicksort each array after the partition
+//        subL = quickHelp(subL);
+//        subR = quickHelp(subR);
+//        
+//        //combine sub-arrays with pivot
+//        for (int i = left + 1; i < n.length; i++) {
+//            n[i] = subL[i - left + 1];
+//        }
+//        for (int i = 0; i < subR.length; i++) {
+//            n[i] = subR[i];
+//        }
+//        
+//        return n;
+//    }
+    
     public static int[] quick(int[] base) {
         comparisons = 0; //for project analysis
         return quickHelp(base);
@@ -84,57 +146,9 @@ public class Sort {
         
         int[] n = Arrays.copyOf(base, base.length);
         
-        //indexes
-        int pivot = n.length - 1; //pivot at end of array
-        int left = -1;
-        int right = -1;
-        
-        //left and right sub-arrays
-        int[] subL;
-        int[] subR;
-        
-        while (left <= right) {
-            
-            for (int i = 0; i < n.length; i++) {
-                if (n[i] > n[pivot]) left = i;
-            }
-            if (left == -1) { //pivot is already in correct place (last)
-                left = pivot;
-                break;
-            }
-
-            for (int i = 0; i < n.length; i++) {
-                if (n[i] < n[pivot]) right = i;
-            }
-            if (right == -1) { //pivot is already in correct place (last)
-                left = 0;
-                break;
-            }
-
-            swap(n, left, right);
         }
-        
-        //assigns pivot value to correct index
-        swap(n, left, pivot);
-        
-        subL = Arrays.copyOfRange(n, 0, pivot);
-        subR = Arrays.copyOfRange(n, pivot + 1, n.length);
-        
-        //recursively quicksort each array after the partition
-        subL = quickHelp(subL);
-        subR = quickHelp(subR);
-        
-        //combine sub-arrays with pivot
-        for (int i = left + 1; i < n.length; i++) {
-            n[i] = subL[i - left + 1];
-        }
-        for (int i = 0; i < subR.length; i++) {
-            n[i] = subR[i];
-        }
-        
         return n;
     }
-    
     /**
      * Fundamentally broken, doesn't even do shaker sort
      * 
