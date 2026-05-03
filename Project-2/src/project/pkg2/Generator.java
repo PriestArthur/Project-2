@@ -1,6 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+/**
+ * Team 7
+ * Abraham Hill, Vanessa Nzamwita Ishimwe, Pong Vodmongkol
+ * CS-2430-501-Spring 2026
+ * Programming Project 2: Algorithm Performance
  */
 package project.pkg2;
 
@@ -8,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
- * A bloated class with the sole purpose of generating permutations from 0 to n-1
+ * A bloated class with the purpose of generating permutations from 0 to n-1
  * 
  * @author abrahamhill
  */
@@ -25,7 +27,7 @@ public class Generator {
         
         list.add(0, Arrays.copyOf(now, n));
         
-        //i = 0 would duplicate first set at the end
+        //
         for (int i = 1; i < fact(n); i++) {
             now = nextPermutation(now);
             list.add(Arrays.copyOf(now, n));
@@ -34,7 +36,11 @@ public class Generator {
         return list;
     }
     
-    //breaks on final permutation
+    /**
+     * 
+     * @param n
+     * @return 
+     */
     private static int[] nextPermutation(int[] n) {
         
         //copy for safe mutation
